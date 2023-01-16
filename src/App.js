@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function App() {
   const CLIENT_ID = "aa15995912fe42b795a6dbca1cb95548"
-  const REDIRECT_URI = "http://localhost:3000"
+  const REDIRECT_URI = "http:/github.io/tylerymarkowitz/IsYourSpotifyBasic"
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
   const scopes = [
     "user-top-read",
@@ -12,7 +12,6 @@ function App() {
 
   const [token, setToken] = useState("")
   //unused
-  const [topArtists, setTopArtists] = useState([])
   const [score, setScore] = useState(0)
   //artist name, artist popularity score, artist img url
   const [mostBasicArtist, setMostBasicArtist] = useState(['', 0, ''])
@@ -45,8 +44,6 @@ function App() {
       "Authorization": "Bearer " + token
     };
     await axios.get("https://api.spotify.com/v1/me/top/artists", { headers }).then((response) => {
-      setTopArtists(response.data.items)
-
       let totalScore = 0;
       let mostBasicArtist = [response.data.items[0].name, response.data.items[0].popularity]
       let leastBasicArtist = [response.data.items[0].name, response.data.items[0].popularity]
@@ -74,14 +71,6 @@ function App() {
   const renderScore = () => {
     return <div>Your Spotify is: <br /> <h2>{score}% Basic</h2></div>
   }
-
-  // const renderTopArtists = () => {
-  //   return topArtists.map(artist => (
-  //     <div key={artist.id}>
-  //       {artist.name}
-  //     </div>
-  //   ))
-  // }
 
   const renderMostBasicArtist = () => {
     return <div class="element">Most Basic Artist: <br />
