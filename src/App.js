@@ -13,9 +13,9 @@ function App() {
   const [token, setToken] = useState("")
   //unused
   const [score, setScore] = useState(0)
-  //artist name, artist popularity score, artist img url
-  const [mostBasicArtist, setMostBasicArtist] = useState(['', 0, ''])
-  const [leastBasicArtist, setLeastBasicArtist] = useState(['', 0, ''])
+  //artist name, artist popularity score, artist img url, artist external_urls
+  const [mostBasicArtist, setMostBasicArtist] = useState(['', 0, '', ''])
+  const [leastBasicArtist, setLeastBasicArtist] = useState(['', 0, '', ''])
 
 
   useEffect(() => {
@@ -54,11 +54,13 @@ function App() {
           mostBasicArtist[0] = response.data.items[i].name
           mostBasicArtist[1] = currScore
           mostBasicArtist[2] = response.data.items[i].images[0].url
+          mostBasicArtist[3] = response.data.items[i].external_urls.spotify
         }
         if (currScore < leastBasicArtist[1]) {
           leastBasicArtist[0] = response.data.items[i].name
           leastBasicArtist[1] = currScore
           leastBasicArtist[2] = response.data.items[i].images[0].url
+          leastBasicArtist[3] = response.data.items[i].external_urls.spotify
         }
       }
       setScore(totalScore / response.data.items.length)
@@ -76,7 +78,10 @@ function App() {
     return <div class="element">Most Basic Artist: <br />
       {mostBasicArtist[0]}<br />
       <img width={"50%"} src={mostBasicArtist[2]} alt="" /> <br />
-      {mostBasicArtist[1]}% basic
+      {mostBasicArtist[1]}% basic<br />
+      <br />
+      <img width={"5%"} src={require("./Spotify_Icon_CMYK_Green.png")} alt="chupapi" />
+      <a href={mostBasicArtist[3]} target='_blank' rel="noreferrer" >Listen On Spotify</a>
     </div>
   }
 
@@ -84,7 +89,10 @@ function App() {
     return <div class="element">Least Basic Artist: <br />
       {leastBasicArtist[0]}<br />
       <img width={"50%"} src={leastBasicArtist[2]} alt="" /> <br />
-      {leastBasicArtist[1]}% basic
+      {leastBasicArtist[1]}% basic <br />
+      <br />
+      <img width={"5%"} src={require("./Spotify_Icon_CMYK_Green.png")} alt="chupapi" />
+      <a href={leastBasicArtist[3]} target='_blank' rel="noreferrer" >Listen On Spotify</a>
     </div>
 
   }
@@ -101,9 +109,9 @@ function App() {
             {renderMostBasicArtist()}
             {renderLeastBasicArtist()}
           </div>
-          : 
+          :
           <div>
-          <h4>Created by <a href = "https://www.linkedin.com/in/tylerymarkowitz/" target='_blank' >Tyler</a></h4>
+            <h4>Created by <a href="https://www.linkedin.com/in/tylerymarkowitz/" target='_blank' rel="noreferrer" >Tyler</a></h4>
           </div>
         }
         {!token ?
@@ -113,7 +121,6 @@ function App() {
           )}&response_type=token&show_dialog=true`}>Login</a>
           :
           <button onClick={logout}>Logout</button>
-
         }
 
 
