@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function App() {
   const CLIENT_ID = "aa15995912fe42b795a6dbca1cb95548"
-  const REDIRECT_URI = "https://tylerymarkowitz.github.io/IsYourSpotifyBasic/"
+  const REDIRECT_URI = "https://tylerymarkowitz.github.io/IsYourMusicBasic/"
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
   const scopes = [
     "user-top-read",
@@ -101,7 +101,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>How Basic Is Your Spotify?</h1>
+        <h1>How Basic Is Your Music?</h1>
 
 
         {token ?
