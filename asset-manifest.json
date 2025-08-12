@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/IsYourMusicBasic/static/css/main.f143860f.css",
-    "main.js": "/IsYourMusicBasic/static/js/main.6c086a5b.js",
+    "main.js": "/IsYourMusicBasic/static/js/main.e683cc8a.js",
     "static/js/787.2fd03a1a.chunk.js": "/IsYourMusicBasic/static/js/787.2fd03a1a.chunk.js",
     "static/media/Spotify_Icon_CMYK_Green.png": "/IsYourMusicBasic/static/media/Spotify_Icon_CMYK_Green.6e3d578d5763900b7b8c.png",
     "index.html": "/IsYourMusicBasic/index.html",
     "main.f143860f.css.map": "/IsYourMusicBasic/static/css/main.f143860f.css.map",
-    "main.6c086a5b.js.map": "/IsYourMusicBasic/static/js/main.6c086a5b.js.map",
+    "main.e683cc8a.js.map": "/IsYourMusicBasic/static/js/main.e683cc8a.js.map",
     "787.2fd03a1a.chunk.js.map": "/IsYourMusicBasic/static/js/787.2fd03a1a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f143860f.css",
-    "static/js/main.6c086a5b.js"
+    "static/js/main.e683cc8a.js"
   ]
 }
